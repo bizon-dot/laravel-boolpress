@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -24,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.partials.crud.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $request->validate([
+            'title' => 'required|max:50',
+            'author' => 'required',
+            'content' => 'required',
+        ]);
+        $new_post = new Post();
+        $new_post->title = $data['title'];
+        $new_post->content = $data['content'];
+        $new_post->author = $data['author'];
+        $new_post->slug = Str::slug($data['title']);
+        $new_post->save();
+        $new_post->save();
+        return view('admin.dashboard');
+
     }
 
     /**

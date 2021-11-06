@@ -52,6 +52,6 @@
 
 
    <!-- Content Row -->
-@include('admin.partials.show')
+@include('admin.partials.crud.show')
 
 @endsection

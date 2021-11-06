@@ -9,7 +9,7 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
           <a class="nav-link" href="#">IndexPost</a>
-          <a class="nav-link" href="#">New Post</a>
+          <a class="nav-link" href="{{route("admin.posts.create")}}">New Post</a>
         </div>
       </div>
     </div>
