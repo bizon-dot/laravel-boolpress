@@ -32,6 +32,13 @@
                 <label for="type">Author</label>
                 <input type="text" name="author" class="form-control" value = "{{ old('author') }}" id="author" placeholder="Enter author">
             </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" name="is_published" id="is_published">
+                    <option value="">Select type</option>
+                    <option value="post">Post</option>
+                    <option value="draft">Draft</option>
+                </select>
         
             <div class="row">
                 <div class="col-12 d-flex p-2 justify-content-center">

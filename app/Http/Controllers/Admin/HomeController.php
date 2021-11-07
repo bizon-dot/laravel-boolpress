@@ -16,7 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('admin.dashboard', compact('posts'));
-        
+        $number_posts = Post::where('is_published', true)->count();
+        $number_drafts = Post::where('is_published', false)->count();
+        return view('admin.dashboard', compact('posts', 'number_posts', 'number_drafts'));
     }
 }

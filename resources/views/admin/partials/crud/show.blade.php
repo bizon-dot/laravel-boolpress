@@ -8,6 +8,7 @@
                         <th scope="col">Author</th>
                         <th scope="col">Content</th>
                         <th scope="col">Slug</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -18,7 +19,9 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->author }}</td>
                             <td>{{ $post->content }}</td>
-                            <td>{{ $post->slug }}</td>                            
+                            <td>{{ $post->slug }}</td>               
+                            <td>{{ ($post->is_published) ? 'post' : 'draft' }}</td>                            
+             
                             <td style="display:flex;">
                                 <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
                                 <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
