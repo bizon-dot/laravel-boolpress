@@ -11,7 +11,7 @@
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                @foreach ($posts as $post)
+                @foreach ($posts ?? '' as $post)
                     <tbody>
                         <tr>
                             <th scope="row">{{ $post->id }}</th>

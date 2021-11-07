@@ -32,11 +32,7 @@
                 <label for="type">Author</label>
                 <input type="text" name="author" class="form-control" value = "{{ old('author') }}" id="author" placeholder="Enter author">
             </div>
-            <div class="form-group">
-                <label for="series">Slug</label>
-                <input type="text" name="slug" class="form-control" value = "{{ old('slug') }}" id="slug" placeholder="Enter slug">
-            </div>
-         
+        
             <div class="row">
                 <div class="col-12 d-flex p-2 justify-content-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
