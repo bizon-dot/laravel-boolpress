@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Post;
+
 class HomeController extends Controller
 {
     /**
@@ -13,6 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $posts = Post::all();
+        return view('admin.dashboard', compact('posts'));
+        
     }
 }

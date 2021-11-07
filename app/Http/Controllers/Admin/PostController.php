@@ -48,7 +48,6 @@ class PostController extends Controller
         $new_post->author = $data['author'];
         $new_post->slug = Str::slug($data['title']);
         $new_post->save();
-        $new_post->save();
         return view('admin.dashboard');
 
     }
