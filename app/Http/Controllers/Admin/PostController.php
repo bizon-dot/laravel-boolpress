@@ -54,7 +54,7 @@ class PostController extends Controller
         $posts = Post::all();
         $number_posts = Post::where('is_published', true)->count();
         $number_drafts = Post::where('is_published', false)->count();
-        return view('admin.partials.crud.index', compact('posts', 'number_posts', 'number_drafts'));
+        return view('admin.index', compact('posts', 'number_posts', 'number_drafts'));
         
 
     }

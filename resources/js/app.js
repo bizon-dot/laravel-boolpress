@@ -1,3 +1,5 @@
 require('./bootstrap');
 
-require('./dashboard.js')
+// require('./dashboard.js');
+
+const axios = require('axios').default;

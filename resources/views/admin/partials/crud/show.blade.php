@@ -13,26 +13,50 @@
                     </tr>
                 </thead>
                 @foreach ($posts ?? '' as $post)
-                    <tbody>
-                        <tr>
-                            <th scope="row">{{ $post->id }}</th>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->author }}</td>
-                            <td>{{ $post->content }}</td>
-                            <td>{{ $post->slug }}</td>               
-                            <td>{{ ($post->is_published) ? 'post' : 'draft' }}</td>                            
-             
-                            <td style="display:flex;">
-                                <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                                <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                              </td>
-                        </tr>
-                    </tbody>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ $post->id }}</th>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->author }}</td>
+                        <td>{{ $post->content }}</td>
+                        <td>{{ $post->slug }}</td>
+                        <td>{{ ($post->is_published) ? 'post' : 'draft' }}</td>
+
+                        <td style="display:flex; gap: 5px;">
+                            <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger" onclick="confirm()"><i
+                                    class="fas fa-trash-alt"></i></button>
+
+                        </td>
+                    </tr>
+                </tbody>
                 @endforeach
             </table>
         </div>
     </div>
+    <script>
+        function confirm() {
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                text: "You won't be able to revert this!",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                denyButtonText: `Don't delete`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('/admin/posts/' + {{ $post->id }})
+                        .then(function (response) {
+                            Swal.fire('Saved!', '', 'success')
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error.response.data);
+                        });
+                } else if (result.isDenied) {
+                    Swal.fire('Changes are not saved', '', 'info')
+                }
+            })
+        }
+    </script>

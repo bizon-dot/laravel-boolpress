@@ -9,10 +9,16 @@
 
 ## BoolPress
 
--[X] create
--[ ] update
--[X] delete
--[X] Introducete le validazioni dei campi visualizzando i possibili errori
--[X] utilizzate il metodo old per non perdere la compilazione dei vostri form
--[X] sul bottone delete con l'ausilio del JS chiedete conferma sull'azione di cancellazione
--[ ] estite le rotte e controller per visualizzare la lista dei post ed il dettaglio nella sezione GUEST
+- [X] create
+
+- [ ] update
+
+- [X] delete
+
+- [X] Introducete le validazioni dei campi visualizzando i possibili errori
+
+- [X] utilizzate il metodo old per non perdere la compilazione dei vostri form
+
+- [X] sul bottone delete con l'ausilio del JS chiedete conferma sull'azione di cancellazione
+
+- [ ] estite le rotte e controller per visualizzare la lista dei post ed il dettaglio nella sezione GUEST
